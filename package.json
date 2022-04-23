@@ -1,0 +1,13 @@
+{
+  "name": "gyro-airlines",
+  "version": "0.0.1",
+  "description": "cool orientation and socket thing",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nosleep.js": "^0.12.0",
+    "socket.io": "^4.2.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
