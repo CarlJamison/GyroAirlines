@@ -20,7 +20,7 @@ var playerColors = [
 var SIZE = 100;
 var SPEED = 2;
 var MAX_SPEED = 5;
-var MAN_DEN = 10;
+var MAN_DEN = 1;
 var BULLET_SPEED = 30;
 var MAX_BULLETS = 1000;
 var game = {active: false, players: []};
@@ -91,6 +91,7 @@ window.onload = function init(){
 	socket.on('update settings', function(settings) {
 		SIZE = settings.SIZE;
 		SPEED = settings.SPEED;
+		MAX_SPEED = settings.MAX_SPEED;
 		MAN_DEN = settings.MAN_DEN;
 		BULLET_SPEED = settings.BULLET_SPEED;
 		MAX_BULLETS = settings.MAX_BULLETS;
@@ -171,8 +172,8 @@ function runFrame(){
 			oldY = 1;
 		}
 		
-		var newX = oldX + (oldY * 0.001 * planeControls[location.index]);
-		var newY = oldY + (-oldX * 0.001 * planeControls[location.index]);
+		var newX = oldX + (oldY * 0.001 * planeControls[location.index] * MAN_DEN);
+		var newY = oldY + (-oldX * 0.001 * planeControls[location.index] * MAN_DEN);
 		//Normalize Vector
 		var ratio = Math.sqrt(((newX * newX) + (newY * newY)) / (speed * speed));
 		

@@ -8,9 +8,11 @@
     <label for="size">SIZE:</label><br>
     <input type="text" id="size" name="size" value="100"><br><br>
     <label for="speed">SPEED:</label><br>
-    <input type="text" id="speed" name="speed" value="3"><br><br>
+    <input type="text" id="speed" name="speed" value="2"><br><br>
+    <label for="max_speed">MAX_SPEED:</label><br>
+    <input type="text" id="max_speed" name="max_speed" value="5"><br><br>
     <label for="man_den">MAN_DEN:</label><br>
-    <input type="text" id="man_den" name="man_den" value="10"><br><br>
+    <input type="text" id="man_den" name="man_den" value="1"><br><br>
     <label for="bullet_speed">BULLET_SPEED:</label><br>
     <input type="text" id="bullet_speed" name="bullet_speed" value="30"><br><br>
     <label for="max_bullets">MAX_BULLETS:</label><br>
@@ -23,8 +25,9 @@
     <script>
 
       var SIZE = 100;
-      var SPEED = 3;
-      var MAN_DEN = 10;
+      var SPEED = 2;
+      var MAX_SPEED = 5;
+      var MAN_DEN = 1;
       var BULLET_SPEED = 30;
       var MAX_BULLETS = 1000;
       var socket = io("/settings");
@@ -33,6 +36,7 @@
         socket.emit('update settings', {
           SIZE: document.getElementById("size").value,
           SPEED: document.getElementById("speed").value,
+          MAX_SPEED: document.getElementById("max_speed").value,
           MAN_DEN: document.getElementById("man_den").value,
           BULLET_SPEED: document.getElementById("bullet_speed").value,
           MAX_BULLETS: document.getElementById("max_bullets").value
